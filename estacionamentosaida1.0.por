@@ -7,13 +7,13 @@ programa
 		caracter carro[2][10]
 		cadeia placaEstacionados [2][10]
 		real caixa = 0.0 
-		inteiro carroTot = 0, avulsos = 0, mensalistas = 0
+		inteiro carroTot = 0, avulsos = 0, mensalistas = 0, mensalAtivos = 0
 		
      funcao inicio()
      {
           caracter encerrar
           inteiro opcao
-          caracter vaga
+          caracter vaga, decisao = 's'
           caracter indis = 'X'
           caracter disp = 'V'
           caracter tipo='x'
@@ -55,25 +55,25 @@ programa
           enquanto (encerrar != 'F') {
                escolha (encerrar) {
                     caso 'E':
-                         entrada(tipo, placaCarro, col, contVerifica, indis, disp, hora)
+                         entrada(tipo, placaCarro, col, contVerifica, indis, disp, hora, decisao)
                          pare
                     caso 'S':
-                         saida(tipo, col, indis, disp)
+                         saida(tipo, col, indis, disp, decisao)
                     caso 'T':
-                         totCarros()
+                         totCarros(decisao)
                     caso 'V':
                          valCaixa()
                     caso 'M':
-                         mensalista()
+                         mensalista(decisao)
                     caso 'F':
                          fim()
                }
           }
      }
 
-     funcao entrada(caracter tipo,cadeia placaCarro, inteiro col, inteiro contVerifica, caracter indis, caracter disp, inteiro hora)
+     funcao entrada(caracter tipo,cadeia placaCarro, inteiro col, inteiro contVerifica, caracter indis, caracter disp, inteiro hora, caracter decisao)
      {
-     	caracter decisao
+ 
      	escreva("\nÉ mensalista ou avulso? (m/a) ")
 		leia(tipo)
 
@@ -92,6 +92,7 @@ programa
 						carro[0][col] = indis
 						escreva("Carro adicionado!")
 						mensalistas++
+						mensalAtivos++
 						contVerifica++
 					}
 					senao{
@@ -137,7 +138,7 @@ programa
 		}
      }
 
-     funcao saida(caracter tipo, inteiro col, caracter indis, caracter disp)
+     funcao saida(caracter tipo, inteiro col, caracter indis, caracter disp, caracter decisao)
      {
      	escreva("O carro que vai sair é mensalista ou avulso? (m/a) ")
      	leia(tipo)
@@ -147,6 +148,7 @@ programa
 					se(carro[0][col]==indis){
 						carro[0][col]=disp
 						placaEstacionados[0][col] = ""
+						mensalAtivos--
 						escreva("Carro removido! Por ser mensalista, nenhum valor será cobrado no momento.")
 					} senao {
 						escreva("Não há um carro estacionado nesta vaga.")
@@ -166,7 +168,6 @@ programa
 						
 					}
 			}
-		caracter decisao
           escreva("\n\nDeseja retirar outro carro ou retornar ao menu? Digite 's' para retirar outro carro ou 'n' para retornar ao menu: ")
 			leia(decisao)
 			se(decisao=='s'){
@@ -177,9 +178,9 @@ programa
 		}
      }
 
-     funcao totCarros()
+     funcao totCarros(caracter decisao)
      {
-     	caracter decisao
+
 		carroTot = avulsos+mensalistas
      	
      	escreva("\nO total de carros avulsos que estacionaram até o momento é de ", avulsos, ".\n")
@@ -201,9 +202,19 @@ programa
           inicio()
      }
 
-     funcao mensalista()
+     funcao mensalista(caracter decisao)
      {
-          inicio()
+     	escreva("\n\nNo momento há ", mensalAtivos, " carros mensalistas estacionados.")
+
+     	escreva("\nGostaria de retornar ao menu? Digite 's' para retornar ao menu. ")
+     	leia(decisao)
+
+     		se(decisao=='s'){
+     			inicio()
+     		} senao{
+     			retorne
+     		}
+          
      }
 
      funcao fim()
@@ -216,10 +227,10 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 2358; 
- * @DOBRAMENTO-CODIGO = [139, 198, 203, 208];
+ * @POSICAO-CURSOR = 6098; 
+ * @DOBRAMENTO-CODIGO = [180, 199, 219];
  * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = ;
+ * @SIMBOLOS-INSPECIONADOS = {carro, 7, 11, 5}-{placaEstacionados, 8, 9, 17};
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
  * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */
