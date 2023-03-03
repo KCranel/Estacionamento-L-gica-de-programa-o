@@ -1,5 +1,6 @@
 programa
 {
+	//Gustavo Rodrigues, Gabriel Texeira, Gabriel Pereira, Matheus Passoni, Brenda Rilko - TI34
      inclua biblioteca Tipos --> tp
      inclua biblioteca Matematica --> mat
      inclua biblioteca Calendario --> calend
@@ -345,9 +346,9 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 12797; 
+ * @POSICAO-CURSOR = 103; 
  * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = {placaEstacionados, 14, 12, 17};
+ * @SIMBOLOS-INSPECIONADOS = {placaEstacionados, 15, 12, 17};
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
  * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */
