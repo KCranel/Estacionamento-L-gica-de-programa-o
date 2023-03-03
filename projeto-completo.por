@@ -324,7 +324,7 @@ programa
                		escreva("\nCarros que entraram no estacionamento até o momento: ", carroTot)
                		escreva("\n----------------------")
                se(hora>=22){
-               	escreva("\nDeseja fechar o programa?: Digite 's' para voltar ao menu ")
+               	escreva("\nDeseja voltar ao menu?: Digite 's' para voltar ao menu ")
                	leia(decisao)
                	limpa()
                	deciApoio = tp.caracter_para_cadeia(decisao)
@@ -333,7 +333,7 @@ programa
                	}
                
            		enquanto(decisao!='s'){
-           			escreva("\nDeseja fechar o programa?: Digite 's' para voltar ao menu ")
+           			escreva("\nDeseja voltar ao menu?: Digite 's' para voltar ao menu ")
            			leia(decisao)
            		} se (decisao=='s'){
            			inicio()
@@ -345,7 +345,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 9489; 
+ * @POSICAO-CURSOR = 12797; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = {placaEstacionados, 14, 12, 17};
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
